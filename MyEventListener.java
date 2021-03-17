@@ -6,6 +6,14 @@ import net.dv8tion.jda.core.entities.User;
 import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.core.hooks.ListenerAdapter;
 
-public class onMessageReceived(MessageReceivedEvent) {
-    
+public void onMessageReceived(MessageReceivedEvent event) {
+    if (event.getAuthor().isBot()) return;
+
+            User author = event.getAuthor();
+            Message message = event.getMessage();
+            String content = message.getContentRaw();
+            MessageChannel channel = event.getChannel();
+            Member member = event.getMember();
+            String nickname = member.getNickname();
+            Role role = event.getGuild().getPublicRole();
 }
